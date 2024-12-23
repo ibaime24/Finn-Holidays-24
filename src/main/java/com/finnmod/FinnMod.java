@@ -25,4 +25,3 @@ public class FinnMod {
         ENTITIES.register(FMLJavaModLoadingContext.get().getModEventBus());
     }
 }
-

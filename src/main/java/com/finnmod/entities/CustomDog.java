@@ -1,5 +1,7 @@
 package com.finnmod.entities;
 
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.entity.AgeableMob;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.TamableAnimal;
 import net.minecraft.world.item.ItemStack;
@@ -12,8 +14,12 @@ public class CustomDog extends TamableAnimal {
     }
 
     @Override
-    protected boolean isFood(ItemStack stack) {
-        // Define which items are food for the CustomDog
-        return stack.getItem().isEdible();
+    public AgeableMob getBreedOffspring(ServerLevel serverLevel, AgeableMob partner) {
+        return new CustomDog(this.getType(), serverLevel);
+    }
+
+    @Override
+    public boolean isFood(ItemStack stack) {
+        return stack.getItem().getFoodProperties() != null;
     }
 }

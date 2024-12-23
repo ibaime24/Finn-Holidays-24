@@ -40,17 +40,33 @@ minecraft {
 }
 
 repositories {
+    // Forge repository
+    maven {
+        url = "https://maven.minecraftforge.net/"
+        name = "forge"
+    }
+
+    // Minecraft repository
+    maven {
+        url = "https://libraries.minecraft.net/"
+        name = "minecraft"
+    }
+
+    // Maven Central repository
     mavenCentral()
-    maven { url 'https://maven.minecraftforge.net/' }
 
-    // This might help if Forge or LWJGL is looking here:
-    maven { url 'https://repo.lwjgl.org/' }
-
-    // (Some mod setups also require 'https://jitpack.io', but that depends on your project)
+    // Exclusive content for Mojang and LWJGL
+    maven {
+        url = 'https://libraries.minecraft.net/'
+        name = 'minecraft-exclusive'
+        content {
+            includeGroup "org.lwjgl"
+            includeGroup "com.mojang"
+        }
+    }
 }
 
 dependencies {
-    // Minecraft Forge dependency
     minecraft 'net.minecraftforge:forge:1.20.6-50.1.0'
 }
 

@@ -1,6 +1,6 @@
 {
   "pack": {
-    "description": "${mod_id} resources",
-    "pack_format": 32
+    "pack_format": 12,
+    "description": "Resource pack for Finn Mod"
   }
 }
